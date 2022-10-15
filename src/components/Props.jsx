@@ -5,5 +5,5 @@ export default function Props ( /* props */  /* props deestructrado ->  */ { men
     <h4> Mi padre me dijo: {/* props.mensaje */} {mensaje && mensaje} </h4>
   )
   
-  {/* terminario solo para la condicion verdadera -> && */}
+  /* terminario solo para la condicion verdadera -> && */
 }

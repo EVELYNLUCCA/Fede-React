@@ -11,7 +11,7 @@ export default function Titulo(props) {
     // console.log(props); 
 
   return (
-    <h3 className={clase}>Hola {props.nombre}</h3>
+    <h3 className={clase + ' usarComunitos'} >Hola {props.nombre}</h3>
   )
 }
 

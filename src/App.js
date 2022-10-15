@@ -1,13 +1,33 @@
 import './App.css';
-import Eventos from './components/Eventos';
-import Effect from './components/Hooks/Effect';
-import States from './components/Hooks/States';
-import LoginYLogout from './components/Mini-Proyectos/LoginYLogout';
-import Props from './components/Props';
-import Saludo from './components/Saludo';
-import TitulosContainer from './components/TitulosContainer';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Reset.css';
+ import Eventos from './components/Eventos';
+ import Effect from './components/Hooks/Effect';
+ import States from './components/Hooks/States';
+ import LoginYLogout from './components/Mini-Proyectos/LoginYLogout';
+ import Props from './components/Props';
+ import Saludo from './components/Saludo';
+ import TitulosContainer from './components/TitulosContainer';
+ import React, { useState, useEffect } from 'react';
+ import userAxios from './Helpers/useAxios';
+import Ref from './components/Hooks/Ref';
+import FormReactive from './components/FormReactive';
+import UsarCss from './components/estilizado/UsarCss';
+import Bootstrap from './components/estilizado/Bootstrap';
+import Iconitos from './components/Iconitos';
 
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    userAxios('https://pokeapi.co/api/v2/pokemon/pikachu', setData);
+  }, [])
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+  
+
   return (
     <main>
 
@@ -50,8 +70,48 @@ function App() {
       <h2>Login y logout - Ejercicio 1</h2>
 
       <LoginYLogout />
+
+      <hr />
+      <hr />
+      <hr />
+
+      <h2>Referencias</h2>
+
+      <Ref />
+
+      <hr />
+      <hr />
+      <hr />
+
+      <h2>Formulario reactivito</h2>
+
+      <FormReactive />
+
+      <hr />
+      <hr />
+      <hr />
+
+      <h2>¿Cómo usamos estilos? 😎😃🥰😱</h2> {/* Windows + . para emojis */ }
+
+      <UsarCss />
+
+      <hr />
+      <hr />
+      <hr />
+
+      <h2> Bootstrap 🤢🤢🤮🤮🤮</h2>
+
+      <Bootstrap />
+
+      <hr />
+      <hr />
+
+      <h2> Iconos de fontawesome </h2>
+
+      <Iconitos />
+
     </main>
   );
-}
+};
 
 export default App;
